@@ -36,7 +36,11 @@ public class ManageStudentFormController {
         System.exit(0);
     }
 
+    /** Restore OnAction */
     public void BtnRestoreDownOnAction(MouseEvent mouseEvent) {
+        Stage stage = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
+        stage.setFullScreenExitHint("");
+        stage.setResizable(true);
     }
 
     /** Minimize OnAction */
