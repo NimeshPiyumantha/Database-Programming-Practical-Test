@@ -153,8 +153,31 @@ public class ManageStudentFormController implements Initializable {
         btnAddNew.fire();
     }
 
-
+    /**
+     * Delete New OnAction
+     */
     public void btnDelete_OnAction(ActionEvent actionEvent) {
+        /*Delete Student*/
+        String id = tblStudent.getSelectionModel().getSelectedItem().getStudentId();
+        try {
+            if (!existStudent(id)) {
+                NotificationController.WarringError("Delete Student Warning", id, "There is no such Student associated with the ");
+            }
+            Connection connection = DBConnection.getDbConnection().getConnection();
+            PreparedStatement pstm = connection.prepareStatement("DELETE FROM Student WHERE studentId=?");
+            pstm.setString(1, id);
+            pstm.executeUpdate();
+
+            tblStudent.getItems().remove(tblStudent.getSelectionModel().getSelectedItem());
+            NotificationController.SuccessfulTableNotification("Delete", "Student");
+            tblStudent.getSelectionModel().clearSelection();
+            initUI();
+
+        } catch (SQLException e) {
+            NotificationController.WarringError("Delete Student Warning", id, "Failed to delete the Student ");
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 
     /**
