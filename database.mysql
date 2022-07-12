@@ -17,6 +17,14 @@ CREATE TABLE IF NOT EXISTS Student
 SHOW TABLES;
 DESCRIBE Student;
 
+USE IJSE;
+INSERT INTO Student
+VALUES ('STU-001', 'Pasan', 'pahasra630@gmail.com', '07123456782', 'Colombo', '200112342221781'),
+       ('STU-002', 'Nimesh', 'nimeshpiyumntha111@gmail.com', '07723456782', 'Galle', '20011243556781'),
+       ('STU-003', 'Maneesha', 'maneesha12@gmail.com', '07523456782', 'Galle', '200112354626781'),
+       ('STU-004', 'Dakshina', 'dakshinatharuka23@gmail.com', '07223456782', 'Pandura', '20011234556781'),
+       ('STU-005', 'Akila', 'you.akila.com12@gmail.com', '07823456782', 'Colombo', '20011233456781');
+
 DROP TABLE IF EXISTS Teacher;
 CREATE TABLE IF NOT EXISTS Teacher
 (
@@ -30,6 +38,14 @@ CREATE TABLE IF NOT EXISTS Teacher
 SHOW TABLES;
 DESCRIBE Teacher;
 
+USE IJSE;
+INSERT INTO Teacher
+VALUES ('TEC-001', 'Hasika Sandaruwan', '199523456788V', '07123456782', 'Colombo'),
+       ('TEC-002', 'Danuja Deshan ', '199623456788V', '07523456782', 'Colombo'),
+       ('TEC-003', 'Yasindu Sathsara', '199524456788V', '07523456782', 'Galle'),
+       ('TEC-004', 'Maneesha Dadigama', '199523451788V', '07143456782', 'Colombo'),
+       ('TEC-005', 'K.S Vithanage', '199523436788V', '07823446782', 'Panadura');
+
 DROP TABLE IF EXISTS Subject;
 CREATE TABLE IF NOT EXISTS Subject
 (
@@ -42,6 +58,14 @@ CREATE TABLE IF NOT EXISTS Subject
 );
 SHOW TABLES;
 DESCRIBE Subject;
+
+USE IJSE;
+INSERT INTO Subject
+VALUES ('SUB-001', 'DBMS', '20', 'TEC-001'),
+       ('SUB-002', 'Software Engineering', '20', 'TEC-004'),
+       ('SUB-003', 'Hibernate', '20', 'TEC-002'),
+       ('SUB-004', 'OOP', '20', 'TEC-003'),
+       ('SUB-005', 'HTML', '20', 'TEC-005');
 
 DROP TABLE IF EXISTS Course;
 CREATE TABLE IF NOT EXISTS Course
@@ -57,6 +81,14 @@ CREATE TABLE IF NOT EXISTS Course
 SHOW TABLES;
 DESCRIBE Course;
 
+USE IJSE;
+INSERT INTO Course
+VALUES ('COU-001', 'GDSE', '420000', '2 Years', 'SUB-002'),
+       ('COU-002', 'CMJD', '60000', '6 Month', 'SUB-004'),
+       ('COU-003', 'DEP', '120000', ' 6 Month', 'SUB-005'),
+       ('COU-004', 'RMAD', '40000', '6 Month', 'SUB-003'),
+       ('COU-005', 'DataBase Management', '20000', '6 Month', 'SUB-001');
+
 DROP TABLE IF EXISTS Intake;
 CREATE TABLE IF NOT EXISTS Intake
 (
@@ -69,6 +101,15 @@ CREATE TABLE IF NOT EXISTS Intake
 );
 SHOW TABLES;
 DESCRIBE Intake;
+
+USE IJSE;
+INSERT INTO Intake
+VALUES ('INT-001', '2022-06-01', 'Registration are Opened.', 'COU-001'),
+       ('INT-002', '2022-07-30', 'Registration are Opened.', 'COU-002'),
+       ('INT-003', '2022-07-30', 'Registration are Opened.', 'COU-003'),
+       ('INT-004', '2022-08-01', 'Registration are Opened.', 'COU-004'),
+       ('INT-005', '2022-12-30', 'Registration are Opened.', 'COU-005');
+
 
 DROP TABLE IF EXISTS Registration;
 CREATE TABLE IF NOT EXISTS Registration
@@ -84,6 +125,15 @@ CREATE TABLE IF NOT EXISTS Registration
 SHOW TABLES;
 DESCRIBE Registration;
 
+USE IJSE;
+INSERT INTO Registration
+VALUES ('REG-001', '2022-05-11', 'STU-002', 'INT-001'),
+       ('REG-002', '2022-06-16', 'STU-001', 'INT-002'),
+       ('REG-003', '2022-06-19', 'STU-003', 'INT-003'),
+       ('REG-004', '2022-07-21', 'STU-004', 'INT-004'),
+       ('REG-005', '2022-11-25', 'STU-005', 'INT-005');
+
+
 DROP TABLE IF EXISTS Payment;
 CREATE TABLE IF NOT EXISTS Payment
 (
@@ -96,3 +146,11 @@ CREATE TABLE IF NOT EXISTS Payment
 );
 SHOW TABLES;
 DESCRIBE Payment;
+
+USE IJSE;
+INSERT INTO Payment
+VALUES ('PAY-001', '2022-05-11', '420000', 'REG-001'),
+       ('PAY-002', '2022-06-16', '60000', 'REG-002'),
+       ('PAY-003', '2022-06-19', '120000', 'REG-003'),
+       ('PAY-004', '2022-07-21', '40000', 'REG-004'),
+       ('PAY-005', '2022-11-25', '20000', 'REG-005');
