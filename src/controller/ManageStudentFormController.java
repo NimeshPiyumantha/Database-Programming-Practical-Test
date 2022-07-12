@@ -83,10 +83,31 @@ public class ManageStudentFormController implements Initializable {
         txtNic.clear();
         txtAddress.clear();
 
+        txtSId.setText(generateNewId());
         txtSName.requestFocus();
         btnSave.setDisable(false);
         btnSave.setText("Save");
         tblStudent.getSelectionModel().clearSelection();
+    }
+
+    /** GenerateNewId OnAction */
+    private String generateNewId() {
+        try {
+            Connection connection = DBConnection.getDbConnection().getConnection();
+            ResultSet rst = connection.createStatement().executeQuery("SELECT studentId FROM Student ORDER BY studentId DESC LIMIT 1");
+            if (rst.next()) {
+                String id = rst.getString("studentId");
+                int newItemId = Integer.parseInt(id.replace("STU-", "")) + 1;
+                return String.format("STU-%03d", newItemId);
+            } else {
+                return "STU-001";
+            }
+        } catch (SQLException e) {
+            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return "STU-001";
     }
 
     public void txtSearchOnAction(ActionEvent actionEvent) {
