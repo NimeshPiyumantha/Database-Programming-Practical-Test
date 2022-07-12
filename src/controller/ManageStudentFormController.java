@@ -3,9 +3,12 @@ package controller;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
+import javafx.scene.Node;
 import javafx.scene.control.TableView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
+import model.Student;
 
 /**
  * @author : Nimesh Piyumantha
@@ -21,7 +24,7 @@ public class ManageStudentFormController {
     public JFXTextField txtNic;
     public JFXTextField txtAddress;
     public JFXButton btnSave;
-    public TableView tblStudent;
+    public TableView<Student> tblStudent;
     public JFXButton btnDelete;
     public JFXButton btnAddNew;
     public JFXTextField txtSearch;
@@ -33,6 +36,8 @@ public class ManageStudentFormController {
     }
 
     public void BtnMinimizeOnAction(MouseEvent mouseEvent) {
+        Stage stage = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
+        stage.setIconified(true);
     }
 
     public void btnSave_OnAction(ActionEvent actionEvent) {
