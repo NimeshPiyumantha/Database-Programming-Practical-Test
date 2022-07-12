@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="StudentFormContext" prefHeight="650.0" prefWidth="1120.0" style="-fx-background-color: white;" stylesheets="@styles/manage_Student.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ManageStudentFormController">
+    <children>
+        <AnchorPane prefHeight="49.0" prefWidth="1120.0" style="-fx-background-color: #2f3542;">
+            <children>
+                <ImageView fitHeight="27.0" fitWidth="32.0" layoutX="1068.0" layoutY="12.0" onMouseClicked="#BtnCloseOnAction" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@assests/close.png" />
+                    </image>
+                </ImageView>
+                <ImageView fitHeight="27.0" fitWidth="32.0" layoutX="1016.0" layoutY="12.0" onMouseClicked="#BtnRestoreDownOnAction" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@assests/maximize.png" />
+                    </image>
+                </ImageView>
+                <ImageView fitHeight="27.0" fitWidth="32.0" layoutX="961.0" layoutY="12.0" onMouseClicked="#BtnMinimizeOnAction" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@assests/minimize.png" />
+                    </image>
+                </ImageView>
+                <Text fill="#dd2727" layoutX="311.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="IJSE System" wrappingWidth="242.0537109375">
+                    <font>
+                        <Font name="Bodoni MT Black" size="24.0" />
+                    </font>
+                </Text>
+                <Label layoutX="570.0" layoutY="9.0" prefHeight="29.0" prefWidth="214.0" text="System Management" textFill="#3e6ccf">
+                    <font>
+                        <Font name="Berlin Sans FB Bold" size="21.0" />
+                    </font>
+                </Label>
+            </children>
+        </AnchorPane>
+        <AnchorPane fx:id="StudentAnchorPane" layoutY="49.0" prefHeight="601.0" prefWidth="1120.0">
+            <children>
+                <Rectangle arcHeight="5.0" arcWidth="5.0" height="64.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="465.0">
+                    <fill>
+                        <LinearGradient endX="0.04807692307692308" endY="0.7115384615384616">
+                            <stops>
+                                <Stop color="#1598d6" />
+                                <Stop color="WHITE" offset="1.0" />
+                            </stops>
+                        </LinearGradient>
+                    </fill>
+                </Rectangle>
+                <Label layoutX="139.0" layoutY="16.0" text="Manage Student">
+                    <font>
+                        <Font name="Bodoni MT Bold Italic" size="35.0" />
+                    </font>
+                </Label>
+                <JFXTextField fx:id="txtSId" labelFloat="true" layoutX="72.0" layoutY="112.0" prefHeight="31.0" prefWidth="274.0" promptText="Student ID :">
+                    <font>
+                        <Font name="System Bold" size="15.0" />
+                    </font>
+                </JFXTextField>
+                <JFXTextField fx:id="txtSName" labelFloat="true" layoutX="404.0" layoutY="112.0" prefHeight="31.0" prefWidth="274.0" promptText="Student Name :">
+                    <font>
+                        <Font name="System Bold" size="15.0" />
+                    </font>
+                </JFXTextField>
+                <JFXTextField fx:id="txtEmail" labelFloat="true" layoutX="774.0" layoutY="112.0" prefHeight="31.0" prefWidth="274.0" promptText="Email :">
+                    <font>
+                        <Font name="System Bold" size="15.0" />
+                    </font>
+                </JFXTextField>
+                <JFXTextField fx:id="txtContact" labelFloat="true" layoutX="72.0" layoutY="176.0" prefHeight="31.0" prefWidth="274.0" promptText="Contact :">
+                    <font>
+                        <Font name="System Bold" size="15.0" />
+                    </font>
+                </JFXTextField>
+                <JFXTextField fx:id="txtNic" labelFloat="true" layoutX="774.0" layoutY="176.0" prefHeight="31.0" prefWidth="274.0" promptText="NIC :">
+                    <font>
+                        <Font name="System Bold" size="15.0" />
+                    </font>
+                </JFXTextField>
+                <JFXTextField fx:id="txtAddress" labelFloat="true" layoutX="404.0" layoutY="176.0" prefHeight="31.0" prefWidth="274.0" promptText="Address :">
+                    <font>
+                        <Font name="System Bold" size="15.0" />
+                    </font>
+                </JFXTextField>
+                <JFXButton id="btnSave" fx:id="btnSave" layoutX="968.0" layoutY="410.0" onAction="#btnSave_OnAction" prefHeight="39.0" prefWidth="121.0" style="-fx-cursor: hand;" text="Save">
+                    <font>
+                        <Font name="System Bold" size="18.0" />
+                    </font>
+                </JFXButton>
+                <TableView fx:id="tblStudent" fixedCellSize="0.0" layoutX="32.0" layoutY="242.0" prefHeight="335.0" prefWidth="923.0">
+                    <columns>
+                        <TableColumn prefWidth="97.0" text="Student ID" />
+                        <TableColumn prefWidth="127.0" text="Student Name" />
+                        <TableColumn prefWidth="180.0" text="Email" />
+                        <TableColumn prefWidth="96.0" text="Contact" />
+                        <TableColumn prefWidth="84.0" text="Address" />
+                        <TableColumn prefWidth="100.0" text="NIC" />
+                    </columns>
+                    <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                    </columnResizePolicy>
+                </TableView>
+                <JFXButton id="btnDelete" fx:id="btnDelete" layoutX="968.0" layoutY="470.0" onAction="#btnDelete_OnAction" prefHeight="39.0" prefWidth="121.0" style="-fx-cursor: hand;" text="Delete">
+                    <font>
+                        <Font name="System Bold" size="18.0" />
+                    </font>
+                </JFXButton>
+                <JFXButton id="btnUpdate" fx:id="btnAddNew" layoutX="967.0" layoutY="242.0" onAction="#btnAddNew_OnAction" prefHeight="39.0" prefWidth="121.0" style="-fx-cursor: hand;" text="+ Add New">
+                    <font>
+                        <Font name="System Bold" size="18.0" />
+                    </font>
+                </JFXButton>
+            <JFXTextField fx:id="txtSearch" labelFloat="true" layoutX="720.0" layoutY="35.0" onAction="#txtSearchOnAction" prefHeight="39.0" prefWidth="274.0" promptText="S00-001">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </JFXTextField>
+            <ImageView fitHeight="39.0" fitWidth="41.0" layoutX="948.0" layoutY="35.0" onMouseClicked="#BtnCloseOnAction" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assests/search.png" />
+               </image>
+            </ImageView>
+            </children>
+        </AnchorPane>
+    </children>
+</AnchorPane>
