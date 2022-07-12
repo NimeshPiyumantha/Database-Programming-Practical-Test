@@ -82,6 +82,32 @@ public class ManageStudentFormController implements Initializable {
         tblStudent.getColumns().get(4).setCellValueFactory(new PropertyValueFactory<>("address"));
         tblStudent.getColumns().get(5).setCellValueFactory(new PropertyValueFactory<>("nic"));
 
+        tblStudent.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+            btnDelete.setDisable(newValue == null);
+            btnSave.setText(newValue != null ? "Update" : "Save");
+            btnSave.setDisable(newValue == null);
+
+            if (newValue != null) {
+                //------------------------Text Filed Load----------------------//
+                txtSId.setText(newValue.getStudentId());
+                txtSName.setText(newValue.getStudentName());
+                txtEmail.setText(newValue.getEmail());
+                txtContact.setText(newValue.getContact());
+                txtNic.setText(newValue.getNic());
+                txtAddress.setText(newValue.getAddress());
+
+
+                txtSId.setDisable(false);
+                txtSName.setDisable(false);
+                txtEmail.setDisable(false);
+                txtContact.setDisable(false);
+                txtNic.setDisable(false);
+                txtAddress.setDisable(false);
+            }
+        });
+
+        txtAddress.setOnAction(event -> btnSave.fire());
+
         loadAllStudent();
         initUI();
 
