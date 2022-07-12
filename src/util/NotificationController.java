@@ -24,29 +24,6 @@ public class NotificationController {
         notificationBuilder.show();
     }
 
-    public static void WarningNotification(String option, String option2) {
-        Notifications notificationBuilder = Notifications.create()
-                .title(option + " UnSuccessful.!")
-                .text("Your " + option2 + " Details " + option + " is Unsuccessfully to the System.")
-                .graphic(new ImageView(new Image("view/assests/error.png")))
-                .hideAfter(Duration.seconds(8))
-                .position(Pos.BOTTOM_RIGHT);
-        notificationBuilder.darkStyle();
-        notificationBuilder.show();
-    }
-
-
-    public static void LoginSuccessfulNotification(String option) {
-        Notifications notificationBuilder = Notifications.create()
-                .title(option + " Login Successful.!")
-                .text("You have Successfully Login " + option + " to the System.")
-                .graphic(new ImageView(new Image("view/assests/done.png")))
-                .hideAfter(Duration.seconds(8))
-                .position(Pos.BOTTOM_RIGHT);
-        notificationBuilder.darkStyle();
-        notificationBuilder.show();
-    }
-
     public static void WarningNotification(String option) {
         Notifications notificationBuilder = Notifications.create()
                 .title("Empty ResultSet.!")
