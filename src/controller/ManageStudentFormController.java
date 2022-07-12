@@ -2,6 +2,7 @@ package controller;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.scene.Node;
 import javafx.scene.control.TableView;
@@ -29,12 +30,16 @@ public class ManageStudentFormController {
     public JFXButton btnAddNew;
     public JFXTextField txtSearch;
 
+    /** Close OnAction */
     public void BtnCloseOnAction(MouseEvent mouseEvent) {
+        Platform.exit();
+        System.exit(0);
     }
 
     public void BtnRestoreDownOnAction(MouseEvent mouseEvent) {
     }
 
+    /** Minimize OnAction */
     public void BtnMinimizeOnAction(MouseEvent mouseEvent) {
         Stage stage = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
         stage.setIconified(true);
