@@ -3,6 +3,7 @@ package view.tm;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import model.Student;
 
 /**
  * @author : Nimesh Piyumantha
@@ -11,7 +12,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class StudentTM {
+public class StudentTM  {
     private String studentId;
     private String studentName;
     private String email;
