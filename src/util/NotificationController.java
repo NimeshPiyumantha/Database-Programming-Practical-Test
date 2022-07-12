@@ -24,7 +24,7 @@ public class NotificationController {
         notificationBuilder.show();
     }
 
-    public static void UnSuccessfulTableNotification(String option, String option2) {
+    public static void WarningNotification(String option, String option2) {
         Notifications notificationBuilder = Notifications.create()
                 .title(option + " UnSuccessful.!")
                 .text("Your " + option2 + " Details " + option + " is Unsuccessfully to the System.")
@@ -47,10 +47,10 @@ public class NotificationController {
         notificationBuilder.show();
     }
 
-    public static void LoginUnSuccessfulNotification(String option) {
+    public static void WarningNotification(String option) {
         Notifications notificationBuilder = Notifications.create()
-                .title("Login UnSuccessful.!")
-                .text(option + " Not Login, Please enter Correct User Name or Password.Try Again.!")
+                .title("Empty ResultSet.!")
+                .text(option + " Empty ResultSet Student!")
                 .graphic(new ImageView(new Image("view/assests/error.png")))
                 .hideAfter(Duration.seconds(8))
                 .position(Pos.BOTTOM_RIGHT);
@@ -79,6 +79,4 @@ public class NotificationController {
         notificationBuilder.darkStyle();
         notificationBuilder.show();
     }
-
-
 }

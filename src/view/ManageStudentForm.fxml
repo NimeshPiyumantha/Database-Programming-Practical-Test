@@ -120,7 +120,7 @@
                         <Font name="System Bold" size="18.0" />
                     </font>
                 </JFXButton>
-            <JFXTextField fx:id="txtSearch" labelFloat="true" layoutX="720.0" layoutY="35.0" onAction="#txtSearchOnAction" prefHeight="39.0" prefWidth="274.0" promptText="S00-001">
+            <JFXTextField fx:id="txtSearch" labelFloat="true" layoutX="720.0" layoutY="35.0" onAction="#txtSearchOnAction" prefHeight="39.0" prefWidth="274.0" promptText="STU-001">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>

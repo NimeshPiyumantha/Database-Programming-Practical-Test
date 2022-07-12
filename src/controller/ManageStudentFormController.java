@@ -14,6 +14,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import model.Student;
+import util.CrudUtil;
 import util.NotificationController;
 import view.tm.StudentTM;
 
@@ -227,7 +228,31 @@ public class ManageStudentFormController implements Initializable {
         return "STU-001";
     }
 
-    public void txtSearchOnAction(ActionEvent actionEvent) {
+    /**
+     * Search Student OnAction
+     */
+    public void txtSearchOnAction(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
+       txtSearch();
+    }
+
+    /**
+     * Search Student method
+     */
+    private void txtSearch() throws SQLException, ClassNotFoundException {
+        ResultSet result = CrudUtil.executeQuery("SELECT * FROM Student WHERE studentId=?", txtSearch.getText());
+        if (result.next()) {
+
+            txtSId.setText(result.getString(1));
+            txtSName.setText(result.getString(2));
+            txtEmail.setText(result.getString(3));
+            txtContact.setText(result.getString(4));
+            txtAddress.setText(result.getString(5));
+            txtNic.setText(result.getString(6));
+
+        } else {
+            NotificationController.WarningNotification("Student");
+        }
+        tblStudent.refresh();
     }
 
     @Override
