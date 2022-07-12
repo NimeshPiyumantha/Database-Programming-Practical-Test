@@ -67,7 +67,26 @@ public class ManageStudentFormController implements Initializable {
     public void btnDelete_OnAction(ActionEvent actionEvent) {
     }
 
+    /** Add New OnAction */
     public void btnAddNew_OnAction(ActionEvent actionEvent) {
+        txtSId.setDisable(false);
+        txtSName.setDisable(false);
+        txtEmail.setDisable(false);
+        txtContact.setDisable(false);
+        txtNic.setDisable(false);
+        txtAddress.setDisable(false);
+
+        txtSId.clear();
+        txtSName.clear();
+        txtEmail.clear();
+        txtContact.clear();
+        txtNic.clear();
+        txtAddress.clear();
+
+        txtSName.requestFocus();
+        btnSave.setDisable(false);
+        btnSave.setText("Save");
+        tblStudent.getSelectionModel().clearSelection();
     }
 
     public void txtSearchOnAction(ActionEvent actionEvent) {
