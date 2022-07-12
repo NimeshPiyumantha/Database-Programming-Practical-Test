@@ -83,7 +83,28 @@ public class ManageStudentFormController implements Initializable {
         tblStudent.getColumns().get(5).setCellValueFactory(new PropertyValueFactory<>("nic"));
 
         loadAllStudent();
+        initUI();
 
+    }
+
+    private void initUI() {
+        txtSId.clear();
+        txtSName.clear();
+        txtEmail.clear();
+        txtContact.clear();
+        txtNic.clear();
+        txtAddress.clear();
+
+        txtSId.setDisable(true);
+        txtSName.setDisable(true);
+        txtEmail.setDisable(true);
+        txtContact.setDisable(true);
+        txtNic.setDisable(true);
+        txtAddress.setDisable(true);
+
+        txtSId.setEditable(false);
+        btnSave.setDisable(true);
+        btnDelete.setDisable(true);
     }
 
     private void loadAllStudent() {
